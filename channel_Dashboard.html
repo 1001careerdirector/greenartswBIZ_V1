@@ -610,122 +610,59 @@
       overflow-x: auto;
     }
 
-    .evidence-head {
+    .panel-head.evidence-head {
       display: grid;
-      gap: 10px;
+      gap: 12px;
+      align-items: stretch;
     }
 
     .evidence-course-selector {
-      display: flex;
-      align-items: stretch;
-      gap: 8px;
+      display: block;
       overflow-x: auto;
-      padding-top: 2px;
-    }
-
-    .course-toolbar {
-      display: flex;
-      justify-content: flex-start;
-      flex: 0 0 auto;
-      margin-bottom: 0;
-    }
-
-    .cloud-drive-button {
-      min-height: 58px;
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 8px 12px;
-      border-radius: 8px;
-      color: #164ea8;
-      background: #e7effd;
-      border: 1px solid rgba(22, 78, 168, 0.18);
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 900;
-      white-space: nowrap;
-      cursor: default;
-      user-select: none;
-    }
-
-    .cloud-mini {
-      position: relative;
-      flex-shrink: 0;
-      width: 24px;
-      height: 14px;
-      border-radius: 999px;
-      background: #fff;
-      border: 2px solid currentColor;
-    }
-
-    .cloud-mini::before,
-    .cloud-mini::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      background: #fff;
-      border: 2px solid currentColor;
-      border-bottom-color: transparent;
-    }
-
-    .cloud-mini::before {
-      width: 12px;
-      height: 12px;
-      left: 3px;
-      top: -9px;
-    }
-
-    .cloud-mini::after {
-      width: 9px;
-      height: 9px;
-      right: 3px;
-      top: -6px;
+      padding: 2px 0 4px;
     }
 
     .course-grid {
       display: flex;
-      align-items: stretch;
-      gap: 8px;
+      align-items: center;
+      gap: 6px;
       min-width: 0;
+      width: max-content;
     }
 
     .course-card {
-      width: auto;
-      min-width: 192px;
-      min-height: 58px;
-      padding: 8px 10px;
-      display: grid;
-      align-content: center;
-      gap: 4px;
-      border-radius: 8px;
-      color: #f8fbff;
-      background:
-        linear-gradient(135deg, rgba(22, 78, 168, 0.26), transparent 52%),
-        #111827;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      flex: 0 0 auto;
+      min-height: 38px;
+      padding: 7px 11px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      border-radius: 999px;
+      color: #314158;
+      background: #fff;
+      border: 1px solid rgba(164, 176, 194, 0.46);
       box-shadow: none;
       cursor: pointer;
+      white-space: nowrap;
     }
 
     .course-card[aria-pressed="true"] {
-      border-color: rgba(255, 208, 90, 0.96);
-      box-shadow: inset 0 0 0 2px rgba(255, 208, 90, 0.82);
+      color: #fff;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      border-color: rgba(22, 78, 168, 0.2);
+      box-shadow: 0 8px 16px rgba(22, 78, 168, 0.16);
     }
 
     .course-card h3 {
       margin-top: 0;
-      font-size: 13px;
-      line-height: 1.35;
+      font-size: 12px;
+      line-height: 1.15;
+      white-space: nowrap;
     }
 
     .course-card p {
-      margin-top: 0;
-      color: #b8c3d4;
-      font-size: 10.5px;
-      line-height: 1.35;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      display: none;
     }
 
     .course-badges,
@@ -752,13 +689,20 @@
     }
 
     .course-badge {
-      color: #101928;
-      background: #ffd05a;
+      min-height: 20px;
+      padding: 3px 7px;
+      color: #8f5b06;
+      background: #fff3c7;
+      font-size: 10px;
     }
 
     .course-badge.secondary {
-      color: #dde7f6;
-      background: rgba(255, 255, 255, 0.14);
+      display: none;
+    }
+
+    .course-card[aria-pressed="true"] .course-badge {
+      color: #102236;
+      background: #dff6f2;
     }
 
     .course-status {
@@ -2266,12 +2210,6 @@
             <span id="selectedCourseCount" class="panel-count">산출물 19 / 계획 20</span>
           </div>
           <div class="evidence-course-selector" aria-label="현상태 비교 훈련과정 선택">
-            <div class="course-toolbar">
-              <div class="cloud-drive-button" aria-label="Google Drive 과정 공간 표시">
-                <span class="cloud-mini" aria-hidden="true"></span>
-                구글 드라이브 과정 공간
-              </div>
-            </div>
             <div class="course-grid">
               <article class="course-card" role="button" tabindex="0" aria-pressed="true" data-course-id="biz1" data-course-name="AI활용 기업맞춤 1차" data-course-count="산출물 19 / 계획 20">
                 <div class="course-badges">
@@ -2279,7 +2217,6 @@
                   <span class="course-badge secondary">출판영상</span>
                 </div>
                 <h3>AI활용 기업맞춤 1차</h3>
-                <p>현상태 선택</p>
               </article>
 
               <article class="course-card" role="button" tabindex="0" aria-pressed="false" data-course-id="biz2" data-course-name="AI활용 기업맞춤 2차" data-course-count="산출물 0 / 계획 20">
@@ -2288,7 +2225,6 @@
                   <span class="course-badge secondary">출판영상</span>
                 </div>
                 <h3>AI활용 기업맞춤 2차</h3>
-                <p>현상태 선택</p>
               </article>
 
               <article class="course-card" role="button" tabindex="0" aria-pressed="false" data-course-id="designer-ai" data-course-name="디자이너를 위한 AI 활용 출판 편집 실무" data-course-count="산출물 8 / 계획 20">
@@ -2297,7 +2233,6 @@
                   <span class="course-badge secondary">출판</span>
                 </div>
                 <h3>디자이너를 위한 AI 활용 출판 편집 실무</h3>
-                <p>현상태 선택</p>
               </article>
             </div>
           </div>
